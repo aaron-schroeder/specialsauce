@@ -44,7 +44,7 @@ setup(
   license='GPLv3',
   packages=find_packages(),
   classifiers=[
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    'License :: OSI Approved :: MIT License',
     'Intended Audience :: Developers',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.8',
