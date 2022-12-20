@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def read(rel_path):
@@ -42,7 +42,7 @@ setup(
   #   'Documentation': 'https://specialsauce.readthedocs.io/en/stable/',
   # },
   license='GPLv3',
-  packages=['specialsauce'],
+  packages=find_packages(),
   classifiers=[
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     'Intended Audience :: Developers',
