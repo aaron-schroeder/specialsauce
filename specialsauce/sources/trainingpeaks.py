@@ -1,7 +1,9 @@
 from scipy.interpolate import interp1d
 
+from specialsauce.sources.util import constrain_grade
 
-def ngp_speed_factor(grade):
+
+def ngp_speed_factor(decimal_grade):
   """Calculate TrainingPeaks' NGP pace-factor as a function of percent grade.
 
   The factor will be greater than 1.0 if NGP is faster than horizontal speed,
@@ -25,6 +27,8 @@ def ngp_speed_factor(grade):
   Returns:
     float: Factor that converts speed to NGP adjusted speed.
   """
+  # Constrain decimal grade to the range of the equation's validity
+  decimal_grade = constrain_grade(decimal_grade, -0.25, 0.3)
 
   adjustment_factors = {
     45: 28.235,
@@ -59,4 +63,4 @@ def ngp_speed_factor(grade):
     list(adjustment_factors.values())
   )
 
-  return interp_fn(grade * 100)
+  return interp_fn(decimal_grade * 100)
