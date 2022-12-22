@@ -41,7 +41,7 @@ setup(
   # project_urls={
   #   'Documentation': 'https://specialsauce.readthedocs.io/en/stable/',
   # },
-  license='GPLv3',
+  license='MIT',
   packages=find_packages(),
   classifiers=[
     'License :: OSI Approved :: MIT License',
