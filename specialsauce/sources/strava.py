@@ -1,7 +1,9 @@
 from scipy.interpolate import interp1d
 
+from .util import constrain_grade
 
-def gap_speed_factor(grade):
+
+def gap_speed_factor(decimal_grade):
   """Calculate Strava's GAP speed-factor as a function of percent grade.
 
   The factor will be greater than 1.0 if GAP is faster than horizontal speed,
@@ -35,6 +37,8 @@ def gap_speed_factor(grade):
   Returns:
     float: Factor that converts speed to grade-adjusted speed.
   """
+  # Constrain decimal grade to the range of the equation's validity
+  decimal_grade = constrain_grade(decimal_grade, -0.45, 0.45)
 
   adjustment_factors = {
     45: 4.286,
@@ -65,4 +69,4 @@ def gap_speed_factor(grade):
     list(adjustment_factors.values())
   )
 
-  return interp_fn(grade * 100)
+  return interp_fn(decimal_grade * 100)
