@@ -1,4 +1,4 @@
-from .util import constrain_grade
+from specialsauce.sources.util import constrain_grade
 
 
 def poly_5(x, a, b, c, d, e, f):

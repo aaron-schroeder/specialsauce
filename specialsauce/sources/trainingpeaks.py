@@ -1,6 +1,6 @@
 from scipy.interpolate import interp1d
 
-from .util import constrain_grade
+from specialsauce.sources.util import constrain_grade
 
 
 def ngp_speed_factor(decimal_grade):
