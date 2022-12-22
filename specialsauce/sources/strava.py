@@ -1,6 +1,5 @@
+import numpy as np
 from scipy.interpolate import interp1d
-
-from specialsauce.sources.util import constrain_grade
 
 
 def gap_speed_factor(decimal_grade):
@@ -38,7 +37,7 @@ def gap_speed_factor(decimal_grade):
     float: Factor that converts speed to grade-adjusted speed.
   """
   # Constrain decimal grade to the range of the equation's validity
-  decimal_grade = constrain_grade(decimal_grade, -0.45, 0.45)
+  decimal_grade = np.clip(decimal_grade, -0.45, 0.45)
 
   adjustment_factors = {
     45: 4.286,
