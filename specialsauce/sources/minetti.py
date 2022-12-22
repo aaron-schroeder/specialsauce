@@ -1,3 +1,5 @@
+from .util import constrain_grade
+
 
 def poly_5(x, a, b, c, d, e, f):
   """Generic 5th-order polynomial function.
@@ -32,7 +34,7 @@ def cost_of_running(decimal_grade):
     float: the estimated cost of running, in J/kg/m, at the given grade.
   """
   # Constrain decimal grade to the range of the equation's validity
-  decimal_grade = min(0.45, max(-0.45, decimal_grade))
+  decimal_grade = constrain_grade(decimal_grade, -0.45, 0.45)
 
   return poly_5(decimal_grade, 155.4, -30.4, -43.3, 46.3, 19.5, 3.6)
 
@@ -52,6 +54,6 @@ def cost_of_walking(decimal_grade):
     float: the estimated cost of walking, in J/kg/m, at the given grade.
   """
   # Constrain decimal grade to the range of the equation's validity
-  decimal_grade = min(0.45, max(-0.45, decimal_grade))
+  decimal_grade = constrain_grade(decimal_grade, -0.45, 0.45)
 
   return poly_5(decimal_grade, 280.5, -58.7, -76.8, 51.9, 19.6, 2.5)
