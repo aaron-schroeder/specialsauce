@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<TrainingCenterDatabase xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1" xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2" xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2" xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+  <Activities>
+    <Activity Sport="Running">
+      <Id>2019-04-23T08:03:54-06:00</Id>
+      <Creator xsi:type="Device_t">
+        <Name>FITNESS with barometer</Name>
+        <UnitID/>
+        <ProductID>0</ProductID>
+        <Version>
+          <VersionMajor>1</VersionMajor>
+          <VersionMinor>0</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+      <Lap StartTime="2019-04-23T08:03:54-06:00">
+        <TotalTimeSeconds>3600.0</TotalTimeSeconds>
+        <DistanceMeters>3600.0</DistanceMeters>
+        <MaximumSpeed>0.0</MaximumSpeed>
+        <Calories>0</Calories>
+        <AverageHeartRateBpm>
+          <Value>105</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>105</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <Cadence>90</Cadence>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Track>
+          <Trackpoint>
+            <Time>2019-04-23T08:03:54-06:00</Time>
+            <Position>
+              <LatitudeDegrees>40.03441</LatitudeDegrees>
+              <LongitudeDegrees>-105.24722</LongitudeDegrees>
+            </Position>
+            <AltitudeMeters>1612.0</AltitudeMeters>
+            <Extensions>
+              <TPX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+                <Speed>1.0</Speed>
+                <RunCadence>90</RunCadence>
+              </TPX>
+            </Extensions>
+          </Trackpoint>
+        </Track>
+      </Lap>
+    </Activity>
+  </Activities>
+</TrainingCenterDatabase>
