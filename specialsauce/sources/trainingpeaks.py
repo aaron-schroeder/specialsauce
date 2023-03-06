@@ -1,5 +1,8 @@
 import numpy as np
+from numpy.polynomial import Polynomial
 from scipy.interpolate import interp1d
+
+from specialsauce import util
 
 
 def ngp_speed_factor(decimal_grade):
@@ -63,3 +66,33 @@ def ngp_speed_factor(decimal_grade):
   )
 
   return interp_fn(decimal_grade * 100)
+
+
+def ngp_speed_factor_np(decimal_grade):
+  g_percent = decimal_grade * 100
+
+  g_min = -25
+  g_max = 30
+  
+  factor_fn = Polynomial(
+    [
+      1.09439525e+00,
+      1.17103636e+00,
+      1.41496858e+00,
+      -9.66348629e-02,
+      -1.55528196e-01,
+      -4.21647562e-04
+    ],
+    domain=[g_min, g_max]
+  )
+
+  g_min = -25
+  g_max = 30
+  factor_min = factor_fn(g_min)
+  factor_max = factor_fn(g_max)
+
+  return np.piecewise(
+    g_percent,
+    [g_percent < g_min, (g_percent >= g_min) & (g_percent <= g_max), g_percent > g_max],
+    [lambda g: factor_min, lambda g: factor_fn(g), lambda g: factor_max]
+  )

@@ -1,4 +1,6 @@
 import numpy as np
+from numpy.polynomial import Polynomial
+import pickle
 from scipy.interpolate import interp1d
 
 
@@ -69,3 +71,42 @@ def gap_speed_factor(decimal_grade):
   )
 
   return interp_fn(decimal_grade * 100)
+
+
+def gap_speed_factor_np(decimal_grade):
+  g_percent = decimal_grade * 100
+  
+  g_min = -45
+  g_max = 45
+
+  factor_fn = Polynomial(
+    [0.99743571, 1.35615613, 3.69628995, -0.15317883, -1.50476068, -0.10920085],
+    domain=[g_min, g_max],
+  )
+
+  factor_min = factor_fn(g_min)
+  factor_max = factor_fn(g_max)
+
+  return np.piecewise(
+    g_percent,
+    [g_percent < g_min, (g_percent >= g_min) & (g_percent <= g_max), g_percent > g_max],
+    [lambda g: factor_min, lambda g: factor_fn(g), lambda g: factor_max]
+  )
+
+
+def gap_speed_factor_pickle(grade):
+  with open('gap_interp', 'rb') as f:
+    fnc = pickle.load(f)
+  return fnc(grade)
+
+
+def gap_speed(speed, grade):
+  return speed * gap_speed_factor(grade)
+
+
+def gap_speed_np(speed, grade):
+  return speed * gap_speed_factor_np(grade)
+
+
+def gap_speed_pickle(speed, grade):
+  return speed * gap_speed_factor_pickle(grade)
