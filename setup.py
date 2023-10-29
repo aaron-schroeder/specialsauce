@@ -43,7 +43,7 @@ setup(
   # },
   license='MIT',
   packages=find_packages(),
-  include_pacage_data=True,
+  include_package_data=True,
   classifiers=[
     'License :: OSI Approved :: MIT License',
     'Intended Audience :: Developers',
