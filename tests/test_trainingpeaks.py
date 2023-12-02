@@ -1,7 +1,6 @@
-"""TODO: Convert to exploratory notebooks."""
 import unittest
 
-from specialsauce.sources.trainingpeaks import ewma_days
+from specialsauce.sources.trainingpeaks import ewma_days, sma
 
 
 class TestEwmaDays(unittest.TestCase):
